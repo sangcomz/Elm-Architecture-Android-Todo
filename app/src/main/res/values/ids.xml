@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="txt_todo" type="id" />
+    <item name="chk_todo" type="id" />
+    <item name="img_todo" type="id" />
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Elm-Todo</string>
+    <string name="title_todo">What needs to be done?</string>
+    <string name="hint_edit">Something to do</string>
+    <string name="txt_msg">Todo</string>
+    <string name="input_msg">input to do</string>
+    <string name="title_list">To do List</string>
+</resources>
