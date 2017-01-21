@@ -8,8 +8,10 @@ Android application with `The Elm Architecture`
 >The logic of every Elm program will break up into three cleanly separated parts:
 
 >Model — the state of your application
-Update — a way to update your state
-View — a way to view your state as HTML
+
+>Update — a way to update your state
+
+>View — a way to view your state as HTML
 
 >This pattern is so reliable that I always start with the following skeleton and fill in details for my particular case.
 
