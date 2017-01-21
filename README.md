@@ -1,8 +1,9 @@
 <img src="/img/background.png">
-![logo.png](quiver-image-url/CCF0AF407ED626BC8FFECE364D9751AC.png)
 # Elm-Architecture-Android-Todo
-Android application with `The Elm Architecture`
 <img src="/img/logo.png" width=50%>
+
+Android application with `The Elm Architecture`
+
 
 # The Elm Architecture
 >The logic of every Elm program will break up into three cleanly separated parts:
