@@ -3,4 +3,10 @@
     <item name="txt_todo" type="id" />
     <item name="chk_todo" type="id" />
     <item name="img_todo" type="id" />
+
+    <item name="cv_input" type="id" />
+    <item name="cv_list" type="id" />
+    <item name="et_todo" type="id" />
+    <item name="tv_todo" type="id" />
+    <item name="btn_todo" type="id" />
 </resources>

@@ -19,9 +19,11 @@ import java.util.*
  * Created by sangcomz on 19/01/2017.
  */
 
-class TodoListAdapter(var todoList: ArrayList<TodoInfo>,
-                      val onCheck: (Int, Boolean) -> View.OnClickListener,
-                      val delete: (TodoInfo) -> View.OnClickListener) : RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder>() {
+class TodoListAdapter(
+    private var todoList: ArrayList<TodoInfo>,
+    private val onCheck: (Int, Boolean) -> View.OnClickListener,
+    private val delete: (TodoInfo) -> View.OnClickListener
+) : RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder>() {
     override fun onBindViewHolder(holder: TodoListViewHolder?, position: Int) {
         holder?.setView(position, todoList[position], onCheck, delete)
     }
@@ -29,18 +31,27 @@ class TodoListAdapter(var todoList: ArrayList<TodoInfo>,
     override fun getItemCount(): Int = todoList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoListViewHolder {
-        return TodoListViewHolder(TodoItemUI().createView(AnkoContext.Companion.create(parent.context, parent)))
+        return TodoListViewHolder(
+            TodoItemUI().createView(
+                AnkoContext.Companion.create(
+                    parent.context,
+                    parent
+                )
+            )
+        )
     }
 
 
     class TodoListViewHolder(item: View) : RecyclerView.ViewHolder(item) {
-        val txtTodo: TextView = item.find(R.id.txt_todo)
-        val chkTodo: CheckBox = item.find(R.id.chk_todo)
-        val imgTodo: ImageButton = item.find(R.id.img_todo)
+        private val txtTodo: TextView = item.find(R.id.txt_todo)
+        private val chkTodo: CheckBox = item.find(R.id.chk_todo)
+        private val imgTodo: ImageButton = item.find(R.id.img_todo)
 
-        fun setView(position: Int,
-                    todoInfo: TodoInfo, onCheck: (Int, Boolean) -> View.OnClickListener,
-                    delete: (TodoInfo) -> View.OnClickListener) {
+        fun setView(
+            position: Int,
+            todoInfo: TodoInfo, onCheck: (Int, Boolean) -> View.OnClickListener,
+            delete: (TodoInfo) -> View.OnClickListener
+        ) {
             chkTodo.setOnClickListener(onCheck(position, todoInfo.isDone))
             imgTodo.setOnClickListener(delete(todoInfo))
             chkTodo.isChecked = todoInfo.isDone
@@ -60,19 +71,21 @@ class TodoListAdapter(var todoList: ArrayList<TodoInfo>,
                     lparams(width = matchParent, height = dip(40))
                     orientation = LinearLayout.HORIZONTAL
                     checkBox {
-                        lparams(width = wrapContent, height = wrapContent)
                         id = R.id.chk_todo
                         gravity = Gravity.CENTER_VERTICAL
+                    }.lparams {
+                        width = wrapContent
+                        height = wrapContent
                     }
                     textView {
-                        lparams(weight = 1f, width = matchParent, height = matchParent)
                         id = R.id.txt_todo
                         gravity = Gravity.CENTER_VERTICAL
+                    }.lparams {
+                        width = matchParent
+                        height = matchParent
                     }
                     imageButton {
-                        lparams(width = wrapContent, height = wrapContent)
                         id = R.id.img_todo
-                        gravity = Gravity.CENTER_VERTICAL
                         imageResource = R.drawable.ic_clear_black_24dp
 
                         val attrs = intArrayOf(R.attr.selectableItemBackgroundBorderless)
@@ -80,6 +93,10 @@ class TodoListAdapter(var todoList: ArrayList<TodoInfo>,
                         val backgroundResource = typedArray.getResourceId(0, 0)
                         setBackgroundResource(backgroundResource)
                         typedArray.recycle()
+                    }.lparams {
+                        width = wrapContent
+                        height = wrapContent
+                        gravity = Gravity.CENTER_VERTICAL
                     }
                 }.applyRecursively {
                     when (it) {
